@@ -16,11 +16,13 @@ const theme: Theme = {
     primary: '#1D62E6',
     secondary: '#00A2FF',
     gray: '#F9F9F9',
+    gray40: '#969DAA',
     black: '#000000',
     states: {
       error: '#FF4A44',
       success: '#65D543',
       alert: '#FFDF41',
+      mainDisabled: '#C7CDD6',
     }
   },
   fonts: {
