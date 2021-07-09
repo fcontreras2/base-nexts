@@ -20,20 +20,28 @@ export const StyledButton = styled.button<ButtonProps>`
     justifyContent: props.withArrow && !props.loading ? 'space-between' : 'center',
     border: props.secondary ? `1px solid ${props.theme.colors.primary}` : 'none',
 
-    ':disabled': {
-      ':hover': {
-        opacity: '1',
-      },
-      cursor: 'auto',
-      borderColor: props.secondary && props.theme.colors.gray40,
-      bg: props.secondary ? 'white' : props.theme.colors.states.mainDisabled,
-      color: props.withArrow && !props.secondary ? 'white' : props.theme.colors.gray40,
-    },
-
     ':hover': {
       opacity: props.secondary ? '1' : '.6',
       color: props.secondary && !props.disabled && 'white',
       bg: props.secondary && !props.disabled && props.theme.colors.primary,
+      '::after' : {
+        filter: 'inherit',
+      },
+    },
+
+    ':disabled': {
+      cursor: 'auto',
+      borderColor: props.secondary && props.theme.colors.gray40,
+      bg: props.secondary ? 'white' : props.theme.colors.states.mainDisabled,
+      color: props.withArrow && !props.secondary ? 'white' : props.theme.colors.gray40,
+      ':hover': {
+        opacity: '1',
+      },
+      '::after' : {
+        filter: props.secondary && (
+          'invert(64%) sepia(11%) saturate(309%) hue-rotate(181deg) brightness(95%) contrast(92%)'
+        ),
+      },
     },
 
     '::after': {
@@ -44,6 +52,9 @@ export const StyledButton = styled.button<ButtonProps>`
       backgroundSize: 'contain',
       backgroundImage: 'url(/images/arrow.svg)',
       display: props.withArrow && !props.loading ? 'block' : 'none',
+      filter: props.secondary && (
+        'invert(36%) sepia(81%) saturate(4618%) hue-rotate(213deg) brightness(92%) contrast(96%)'
+      ),
     }
   })}
 

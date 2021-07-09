@@ -3,12 +3,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 export type ButtonProps = {
   theme?: any;
-  secondary?: boolean,
-  children?: React.FC | string;
   variant?: string;
   loading?: boolean;
   disabled?: boolean;
   withArrow?: boolean;
+  secondary?: boolean;
+  children?: React.FC | string | React.ReactChild;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {
@@ -22,7 +22,7 @@ const Button = (props: ButtonProps) => {
     <StyledButton
       {...{...moreProps, loading}}
     >
-      {loading ? <ClipLoader size="20" color="main"/> : children}
+      {loading ? <ClipLoader size="20" color="main" /> : children}
     </StyledButton>
   );
 };
