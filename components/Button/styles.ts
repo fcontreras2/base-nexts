@@ -3,9 +3,8 @@ import css from '@styled-system/css';
 import { variant } from 'styled-system';
 import { ButtonProps } from './index';
 
-export const StyledButton = styled.button`
-  ${(props: ButtonProps) => css({
-    bg: 'white',
+export const StyledButton = styled.button<ButtonProps>`
+  ${(props) => css({
     display: 'flex',
     padding: '0 24px',
     cursor: 'pointer',
@@ -15,20 +14,26 @@ export const StyledButton = styled.button`
     minWidth: ['123px'],
     alignItems: 'center',
     borderRadius: ['40px'],
-    border: '1px solid black',
-    justifyContent: props.withArrow ? 'space-between' : 'center',
+    transition: 'all 0.4s ease',
+    color: props.secondary ? props.theme.colors.primary : 'white',
+    bg: props.secondary ? 'white' : props.theme.colors.primary,
+    justifyContent: props.withArrow && !props.loading ? 'space-between' : 'center',
+    border: props.secondary ? `1px solid ${props.theme.colors.primary}` : 'none',
 
     ':disabled': {
       ':hover': {
         opacity: '1',
       },
       cursor: 'auto',
-      bg: props.theme.colors.states.mainDisabled,
-      color: props.withArrow ? props.theme.colors.white : props.theme.colors.gray40,
+      borderColor: props.secondary && props.theme.colors.gray40,
+      bg: props.secondary ? 'white' : props.theme.colors.states.mainDisabled,
+      color: props.withArrow && !props.secondary ? 'white' : props.theme.colors.gray40,
     },
 
     ':hover': {
-      opacity: '.6',
+      opacity: props.secondary ? '1' : '.6',
+      color: props.secondary && !props.disabled && 'white',
+      bg: props.secondary && !props.disabled && props.theme.colors.primary,
     },
 
     '::after': {
@@ -38,67 +43,27 @@ export const StyledButton = styled.button`
       marginLeft: ['8px'],
       backgroundSize: 'contain',
       backgroundImage: 'url(/images/arrow.svg)',
-      display: props.withArrow ? 'block' : 'none',
+      display: props.withArrow && !props.loading ? 'block' : 'none',
     }
   })}
 
-  ${(props) => variant({
+  ${() => variant({
     prop: 'variant',
     variants: {
-      'mainXs': {
-        border: 'none',
-        color: 'white',
+      'xs': {
         height: ['32px'],
-        bg: props.theme.colors.primary,
       },
-      'mainS': {
-        border: 'none',
-        color: 'white',
+      's': {
         height: ['40px'],
         minWidth: ['154px'],
-        bg: props.theme.colors.primary,
       },
-      'mainM': {
-        border: 'none',
-        color: 'white',
+      'm': {
         height: ['48px'],
         minWidth: ['154px'],
-        bg: props.theme.colors.primary,
       },
-      'mainL': {
-        border: 'none',
-        color: 'white',
+      'l': {
         height: ['56px'],
         minWidth: ['154px'],
-        bg: props.theme.colors.primary,
-      },
-
-      'secondaryXs': {
-        border: 'none',
-        color: 'white',
-        height: ['32px'],
-        bg: props.theme.colors.primary,
-      },
-      'secondaryS': {
-        border: 'none',
-        color: 'white',
-        height: ['40px'],
-        minWidth: ['154px'],
-        bg: props.theme.colors.primary,
-      },
-      'secondaryM': {
-        border: 'none',
-        color: 'white',
-        height: ['48px'],
-        minWidth: ['154px'],
-        bg: props.theme.colors.primary,
-      },
-      'secondaryL': {
-        border: 'none',
-        color: 'white',
-        height: ['56px'],
-        minWidth: ['154px'],
-        bg: props.theme.colors.primary,
       },
     }
   })}

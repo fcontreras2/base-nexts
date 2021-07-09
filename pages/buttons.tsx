@@ -5,25 +5,29 @@ function Buttons() {
   return (
     <Container>
       <h1>Tipo de botones</h1>
-      <h3>Main</h3>
+      <h3></h3>
       <Grid container justify="space-evenly">
         <Grid item>
           <Button
-            variant={'mainXs'}
+            type="button"
+            variant="xs"
           >
             Button
           </Button>
         </Grid>
         <Grid item>
           <Button
-            variant={'mainS'}
+            type="button"
+            variant="s"
           >
             Button
           </Button>
         </Grid>
         <Grid item>
           <Button
-            variant={'mainM'}
+            loading
+            type="button"
+            variant="m"
           >
             Button
           </Button>
@@ -31,7 +35,8 @@ function Buttons() {
         <Grid item>
           <Button
             disabled
-            variant={'mainL'}
+            type="button"
+            variant="l"
           >
             Button
           </Button>
@@ -42,7 +47,7 @@ function Buttons() {
         <Grid item>
           <Button
             withArrow
-            variant={'mainXs'}
+            variant="xs"
           >
             Button
           </Button>
@@ -50,15 +55,16 @@ function Buttons() {
         <Grid item>
           <Button
             withArrow
-            variant={'mainS'}
+            variant="s"
           >
             Button
           </Button>
         </Grid>
         <Grid item>
           <Button
+            loading
             withArrow
-            variant={'mainM'}
+            variant="m"
           >
             Button
           </Button>
@@ -67,7 +73,7 @@ function Buttons() {
           <Button
             withArrow
             disabled
-            variant={'mainL'}
+            variant="l"
           >
             Button
           </Button>
@@ -76,31 +82,79 @@ function Buttons() {
       <h3>Tipo de botones</h3>
       <Grid container justify="space-evenly">
         <Grid item>
-          <Button />
+          <Button
+            secondary
+            variant="xs"
+          >
+            Button
+          </Button>
         </Grid>
         <Grid item>
-          <Button />
+          <Button
+            secondary
+            variant="s"
+          >
+            Button
+          </Button>
         </Grid>
         <Grid item>
-          <Button />
+          <Button
+            loading
+            secondary
+            variant="m"
+          >
+            Button
+          </Button>
         </Grid>
         <Grid item>
-          <Button />
+          <Button
+            disabled
+            secondary
+            variant="l"
+          >
+            Button
+          </Button>
         </Grid>
       </Grid>
       <h3>Tipo de botones</h3>
       <Grid container justify="space-evenly">
         <Grid item>
-          <Button />
+          <Button
+            secondary
+            withArrow
+            variant="xs"
+          >
+            Button
+          </Button>
         </Grid>
         <Grid item>
-          <Button />
+          <Button
+            secondary
+            withArrow
+            variant="s"
+          >
+            Button
+          </Button>
         </Grid>
         <Grid item>
-          <Button />
+          <Button
+            loading
+            secondary
+            withArrow
+            variant="m"
+          >
+            Button
+          </Button>
         </Grid>
         <Grid item>
-          <Button />
+          <Button
+            secondary
+            withArrow
+            disabled
+            variant="l"
+          >
+            Button
+          </Button>
         </Grid>
       </Grid>
     </Container>

@@ -1,16 +1,17 @@
 import { StyledButton } from './styles';
+import ClipLoader from "react-spinners/ClipLoader";
 
-export interface ButtonProps {
+export type ButtonProps = {
   theme?: any;
-  children?: Node | string;
+  secondary?: boolean,
+  children?: React.FC | string;
   variant?: string;
   loading?: boolean;
-  type: string;
   disabled?: boolean;
   withArrow?: boolean;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-function Button(props: ButtonProps) {
+const Button = (props: ButtonProps) => {
   const { 
     children, 
     loading,
@@ -19,9 +20,9 @@ function Button(props: ButtonProps) {
 
   return (
     <StyledButton
-      {...moreProps}
+      {...{...moreProps, loading}}
     >
-      {children}
+      {loading ? <ClipLoader size="20" color="main"/> : children}
     </StyledButton>
   );
 };
